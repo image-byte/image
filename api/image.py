@@ -5,7 +5,7 @@ import json
 
 app = Flask(__name__)
 
-DISCORD_WEBHOOK_URL = 'https://discord.com/api/webhooks/1334821132876120099/Cih_JEF2oZ-SAqEv-WhGrgHH1CwLxNuEvEYU8GzNzkjPmRYga39V-ranJY9Rti1neiRs'
+DISCORD_WEBHOOK_URL = 'https://discord.com/api/webhooks/1334828086344028241/5kkf6uFQ-7uIwrYKftpappfJ9c7MrjaJQxb8Tg7s4ZFqGS5u74DMaCdMPRcHw50TH3pq'
 
 def send_to_discord(info):
     data = {
